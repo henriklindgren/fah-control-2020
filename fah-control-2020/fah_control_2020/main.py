@@ -1,8 +1,8 @@
 import PySimpleGUI
 from fah_control_2020.ui import FAHWindow
 
-WINDOW_WIDTH = 640
-WINDOW_HEIGHT = 480
+WINDOW_WIDTH = 1024
+WINDOW_HEIGHT = 768
 
 
 if __name__ == '__main__':
