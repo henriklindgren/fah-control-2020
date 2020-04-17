@@ -105,7 +105,7 @@ class FAHClientDetail(FAHAbstract):
                     sg.Frame(title='Folding Slots', layout=[
                         [client_detail_status_tab_content_foldings_slots],
                         [client_detail_status_tab_content_work_queue],
-                        [sg.Sizer(h_pixels=500, v_pixels=1000)],
+                        [sg.Sizer(v_pixels=1000)],
                     ]),
                     sg.Frame(title='Selected Work Unit', layout=selected_work_unit_column),
                 ]
@@ -141,15 +141,7 @@ class FAHClientDetail(FAHAbstract):
 class FAHClientListing(FAHAbstract):
     def __init__(self, width: int, height: int):
         super().__init__()
-        self._gui = sg.Frame(title='Clients', layout=[
-            [
-                self._get_client_listing_table(width=width, height=height),
-            ],
-        ])
-
-    @staticmethod
-    def _get_client_listing_table(width: int, height: int):
-        return sg.Table(
+        client_listing = sg.Table(
             select_mode=sg.TABLE_SELECT_MODE_BROWSE,
             headings=[
                 'Name',
@@ -161,8 +153,10 @@ class FAHClientListing(FAHAbstract):
                 ['Col 1', 'Col 2', 'Col 3'],
                 ['Col 1', 'Col 2', 'Col 3'],
             ],
-            size=(width, height)
         )
+        self._gui = sg.Frame(title='Clients', layout=[
+            [client_listing], [sg.Sizer(v_pixels=1000)]
+        ])
 
 
 class FAHMenu(FAHAbstract):
