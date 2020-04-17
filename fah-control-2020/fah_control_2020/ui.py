@@ -51,6 +51,7 @@ class FAHClientDetail(FAHAbstract):
             ],
             size=(30, 20),
         )
+        selected_work_unit_max_size = 1000
         selected_work_unit_column = [
             [sg.Text('PRCG'), sg.Text('content')],
             [sg.Text('Folding Slot ID'), sg.Text('content')],
@@ -58,7 +59,7 @@ class FAHClientDetail(FAHAbstract):
             [sg.Text('Status'), sg.Text('content')],
             [
                 sg.Text('Progress'),
-                sg.ProgressBar(1000, orientation='h', size=(1000, 20), key='progbar')
+                sg.ProgressBar(1000, orientation='h', size=(selected_work_unit_max_size, 20), key='progbar')
             ],
             [sg.Text('ETA'), sg.Text('content')],
             [sg.Text('Base Credit'), sg.Text('content')],
@@ -75,6 +76,7 @@ class FAHClientDetail(FAHAbstract):
             [sg.Text('Expiration'), sg.Text('content')],
             [sg.Text('Work Server'), sg.Text('content')],
             [sg.Text('Collection Server'), sg.Text('content')],
+            [sg.Sizer(h_pixels=selected_work_unit_max_size, v_pixels=1000)],
         ]
         client_detail_status_tab_content = [
             sg.Frame(title='', border_width=0, layout=[
