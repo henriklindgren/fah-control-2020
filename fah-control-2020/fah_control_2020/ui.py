@@ -33,7 +33,6 @@ class FAHClientDetail(FAHAbstract):
                 ['Col 1', 'Col 2', 'Col 3'],
                 ['Col 1', 'Col 2', 'Col 3'],
             ],
-            size=(30, 20),
         )
         client_detail_status_tab_content_work_queue = sg.Table(
             select_mode=sg.TABLE_SELECT_MODE_BROWSE,
@@ -49,7 +48,6 @@ class FAHClientDetail(FAHAbstract):
                 ['Col 1', 'Col 2', 'Col 3', 'Col 4', 'Col 5', 'Col 6'],
                 ['Col 1', 'Col 2', 'Col 3', 'Col 4', 'Col 5', 'Col 6'],
             ],
-            size=(30, 20),
         )
         selected_work_unit_max_size = 1000
         selected_work_unit_column = [
@@ -86,7 +84,7 @@ class FAHClientDetail(FAHAbstract):
                     sg.Button(STR_FINISH, size=button_size),
                     sg.Frame(title='Folding Power', layout=[
                         [
-                            sg.Slider(range=(1, 3), orientation='h', size=(30, 10), default_value=2, tick_interval=1)
+                            sg.Slider(range=(1, 3), orientation='h', size=(1000, 10), default_value=2, tick_interval=1)
                         ]
                     ]),
                 ],
@@ -107,6 +105,7 @@ class FAHClientDetail(FAHAbstract):
                     sg.Frame(title='Folding Slots', layout=[
                         [client_detail_status_tab_content_foldings_slots],
                         [client_detail_status_tab_content_work_queue],
+                        [sg.Sizer(h_pixels=500, v_pixels=1000)],
                     ]),
                     sg.Frame(title='Selected Work Unit', layout=selected_work_unit_column),
                 ]
