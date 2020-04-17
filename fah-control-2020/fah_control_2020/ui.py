@@ -51,6 +51,31 @@ class FAHClientDetail(FAHAbstract):
             ],
             size=(30, 20),
         )
+        selected_work_unit_column = [
+            [sg.Text('PRCG'), sg.Text('content')],
+            [sg.Text('Folding Slot ID'), sg.Text('content')],
+            [sg.Text('Work Queue ID'), sg.Text('content')],
+            [sg.Text('Status'), sg.Text('content')],
+            [
+                sg.Text('Progress'),
+                sg.ProgressBar(1000, orientation='h', size=(1000, 20), key='progbar')
+            ],
+            [sg.Text('ETA'), sg.Text('content')],
+            [sg.Text('Base Credit'), sg.Text('content')],
+            [sg.Text('Estimated Credit'), sg.Text('content')],
+            [sg.Text('Estimated PPD'), sg.Text('content')],
+            [sg.Text('Estimated TPF'), sg.Text('content')],
+            [sg.Text('Project'), sg.Text('content')],
+            [sg.Text('FahCore'), sg.Text('content')],
+            [sg.Text('Waiting On'), sg.Text('content')],
+            [sg.Text('Attempts'), sg.Text('content')],
+            [sg.Text('Next Attempt'), sg.Text('content')],
+            [sg.Text('Assigned'), sg.Text('content')],
+            [sg.Text('Timeout'), sg.Text('content')],
+            [sg.Text('Expiration'), sg.Text('content')],
+            [sg.Text('Work Server'), sg.Text('content')],
+            [sg.Text('Collection Server'), sg.Text('content')],
+        ]
         client_detail_status_tab_content = [
             sg.Frame(title='', border_width=0, layout=[
                 [
@@ -81,54 +106,7 @@ class FAHClientDetail(FAHAbstract):
                         [client_detail_status_tab_content_foldings_slots],
                         [client_detail_status_tab_content_work_queue],
                     ]),
-                    sg.Frame(title='Selected Work Unit', layout=[
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('PRCG'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Folding Slot ID'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Work Queue ID'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Status'), sg.Text('content')]])],
-                        [
-                            sg.Frame(title='', border_width=0, pad=(0, 0), layout=[
-                                    [
-                                        sg.Text('Progress'),
-                                        sg.ProgressBar(1000, orientation='h', size=(1, 20), key='progbar')
-                                    ]
-                                ]
-                             )
-                        ],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0), layout=[[sg.Text('ETA'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Base Credit'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Estimated Credit'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Estimated PPD'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Estimated TPF'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 5),
-                                  layout=[[sg.Text('Project'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('FahCore'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Waiting On'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Attempts'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Next Attempt'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Assigned'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Timeout'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Expiration'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 5),
-                                  layout=[[sg.Text('Work Server'), sg.Text('content')]])],
-                        [sg.Frame(title='', border_width=0, pad=(0, 0),
-                                  layout=[[sg.Text('Collection Server'), sg.Text('content')]])],
-                    ]),
+                    sg.Frame(title='Selected Work Unit', layout=selected_work_unit_column),
                 ]
             ]),
         ]
