@@ -28,12 +28,13 @@ See https://github.com/PySimpleGUI/PySimpleGUI
 
 ## Current progress
 | Date | What |
+| ---- | ---- |
 | 2020-04-18 | Made repository public. Made README contributor friendly. |
 
 ## UI Examples
 | Legacy client | Current Progress |
 | ------------- | ---------------- |
-| - | - |
+| ![](https://i.imgur.com/TGUL3Hh.png) | ![](https://i.imgur.com/DauJXR3.png) |
 
 
 ## Contribute
