@@ -1,5 +1,5 @@
 import PySimpleGUI
-from .ui import FAHWindow
+from .views import FAHWindow
 WINDOW_WIDTH = 1024
 WINDOW_HEIGHT = 768
 

@@ -97,7 +97,7 @@ class FAHClientDetail(FAHAbstract):
                             sg.Text('<team>', size=(6, 1)),
                         ],
                     ]),
-                    sg.Frame(title='Points Per Day', element_justification='right', layout=[
+                    sg.Frame(title='Points Per Day', layout=[
                         [sg.Text(text='1234')]
                     ]),
                 ],
