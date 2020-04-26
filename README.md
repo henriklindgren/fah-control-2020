@@ -30,6 +30,7 @@ See https://github.com/PySimpleGUI/PySimpleGUI
 | Date | What |
 | ---- | ---- |
 | 2020-04-18 | Made repository public. Made README contributor friendly. |
+| 2020-04-26 | Started work on porting connection + client code. |
 
 ## UI Examples
 | Legacy client | Current Progress |
