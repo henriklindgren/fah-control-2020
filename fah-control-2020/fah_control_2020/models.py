@@ -5,9 +5,27 @@ from typing import List
 from pydantic import BaseModel, IPvAnyInterface, SecretStr
 
 
+class FoldingPowerLevel(str, Enum):
+    LIGHT = 'light'
+    MEDIUM = 'medium'
+    FULL = 'full'
+
+
 class ClientStatus(str, Enum):
     ONLINE = 'online'
     OFFLINE = 'offline'
+    UPDATING = 'updating'
+    CONNECTING = 'connecting'
+    SHUTDOWN = 'shutdown'
+
+    ACTIVE = 'active'
+    READY = 'ready'
+    DUMP = 'dump'
+
+
+class Identity(BaseModel):
+    name: str
+    team_id: int
 
 
 class Client(BaseModel):
@@ -16,11 +34,8 @@ class Client(BaseModel):
     port: int = 36330
     password: SecretStr
     status: ClientStatus
-
-
-class Identity(BaseModel):
-    name: str
-    team_id: int
+    folding_power: FoldingPowerLevel
+    identity: Identity
 
 
 class SlotType(str, Enum):
@@ -36,6 +51,14 @@ class FoldingSlot(BaseModel):
 
 class WorkStatus(str, Enum):
     RUNNING = 'running'
+    PAUSED = 'paused'
+    FINISHING = 'finishing'
+    FINISHED = 'finished'
+    UPLOADED = 'uploaded'
+
+    FAILED = 'failed'
+    ERROR = 'error'
+    FAULTY = 'faulty'
 
 
 class PRCG(BaseModel):
