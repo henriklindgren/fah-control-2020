@@ -1,7 +1,7 @@
 from typing import Optional, List
 
 from .connection import Connection
-from .protocol import SlotCommand
+from .protocol import SlotCommand, ClientProtocol
 
 
 class SlotConfiguration(object):
@@ -57,10 +57,12 @@ class Client(object):
         self.conn = Connection(
             address=self.config.address,
             port=self.config.port,
-            password=self.config.password,
             retry_rate=self.config.retry_rate
         )
 
     @property
     def is_local(self):
         return self.config.address == '127.0.0.1' and self.config.name == 'local'
+
+    def auth(self):
+        self.conn.queue_command(ClientProtocol.auth_command(self.config.password))

@@ -3,16 +3,13 @@ import logging
 import socket
 import time
 
-from .protocol import ClientProtocol
-
 log = logging.getLogger(__name__)
 
 
 class Connection(object):
-    def __init__(self, address, port, password=None, retry_rate=5):
+    def __init__(self, address, port, retry_rate=5):
         self.address = address
         self.port = int(port)
-        self.password = password
         self.init_commands = []
         self.retry_rate = retry_rate
 
@@ -50,10 +47,6 @@ class Connection(object):
         self.last_message = 0
         self.last_connect = 0
 
-    def auth(self):
-        # FIXME collect all commands somewhere sane.
-        self.queue_command(ClientProtocol.auth_command(self.password))
-
     def open(self):
         self.reset()
         self.last_connect = time.time()
@@ -70,8 +63,6 @@ class Connection(object):
             self.fail_reason = 'connect'
             raise RuntimeError('Connection failed: ' + errno.errorcode[err])
 
-        if self.password:
-            self.auth()
         map(self.queue_command, self.init_commands)
 
     def queue_command(self, command):
