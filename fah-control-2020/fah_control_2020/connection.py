@@ -6,6 +6,9 @@ import time
 log = logging.getLogger(__name__)
 
 
+WSAEWOULDBLOCK = 10035
+
+
 class Connection(object):
     def __init__(self, address, port, retry_rate=5):
         self.address = address
@@ -58,7 +61,7 @@ class Connection(object):
         if err != 0 and not err in [
             errno.EINPROGRESS,
             errno.EWOULDBLOCK,
-            errno.WSAEWOULDBLOCK
+            WSAEWOULDBLOCK
         ]:
             self.fail_reason = 'connect'
             raise RuntimeError('Connection failed: ' + errno.errorcode[err])
