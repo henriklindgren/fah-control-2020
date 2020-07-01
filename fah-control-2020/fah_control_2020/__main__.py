@@ -1,5 +1,6 @@
 import PySimpleGUI
-from .views import FAHWindow
+from fah_control_2020.views import FAHWindow
+
 WINDOW_WIDTH = 1024
 WINDOW_HEIGHT = 768
 
