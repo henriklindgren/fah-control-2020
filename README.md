@@ -38,6 +38,13 @@ See https://github.com/PySimpleGUI/PySimpleGUI
 | ![](https://i.imgur.com/TGUL3Hh.png) | ![](https://i.imgur.com/DauJXR3.png) |
 
 
+## Technical details
+
+### Socket handling
+![](https://i.imgur.com/nmpgXTG.png)
+
+
+
 ## Contribute
 
 Fork the repository and make pull requests from your fork. Create issues on features and bugs.
